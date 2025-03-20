@@ -15,7 +15,7 @@ class AuthController extends Controller
     {
         $this->authService = $authService;
     }
-
+    // login
     public function login(LoginRequest $request)
     {
         $response = $this->authService->login($request->validated());
@@ -27,6 +27,7 @@ class AuthController extends Controller
         return app('ResponseHelper')::successResponse($response, 'Login successful', $response['status']);
     }
 
+    // forgot password
     public function forgotPassword(ForgotPasswordRequest $request)
     {
         $response = $this->authService->forgotPassword($request->validated());
